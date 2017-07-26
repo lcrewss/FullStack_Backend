@@ -1,5 +1,4 @@
 var express = require('express');
-// var cors = require('cors');
 var router = express.Router();
 var queries = require('../queries')
 
@@ -10,5 +9,14 @@ router.get('/', function(request, response){
 
   })
 })
+
+  router.get('/:name',function(request, response){
+    var name=request.params.name
+    queries.getLiquorsById(name).then(function(liquors){
+
+      response.json(name)
+    })
+  })
+
 
 module.exports = router
