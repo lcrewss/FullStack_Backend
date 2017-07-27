@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var queries = require('../queries')
+var knex = require('../database/knex')
 // var bodyParser = require('body-parser')
 
 
@@ -20,10 +21,10 @@ router.get('/', function(request, response){
   // })
 
 router.post('/', function(request, response){
-  liquors.push(request.body);
-  // knex('liquors').insert(request.body).then(function(){
+  request.body.like=true
+  knex('liquors').insert(request.body).then(function(){
     response.json({message: 'success!'});
   })
-
+})
 
 module.exports = router
