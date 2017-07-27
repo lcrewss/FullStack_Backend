@@ -1,5 +1,10 @@
 {
-  "projects": {
-    "default": "fullstackapp-ce4fb"
+  "hosting": {
+    "public": "app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
