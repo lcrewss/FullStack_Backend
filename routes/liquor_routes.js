@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var queries = require('../queries')
+// var bodyParser = require('body-parser')
 
 
 router.get('/', function(request, response){
@@ -9,13 +10,19 @@ router.get('/', function(request, response){
 
   })
 })
+  //
+  // router.get('/:name',function(request, response){
+  //   var name=request.params.name
+  //   queries.getLiquorsById(name).then(function(liquors){
+  //
+  //     response.json(name)
+  //   })
+  // })
 
-  router.get('/:name',function(request, response){
-    var name=request.params.name
-    queries.getLiquorsById(name).then(function(liquors){
-
-      response.json(name)
-    })
+router.post('/', function(request, response){
+  liquors.push(request.body);
+  // knex('liquors').insert(request.body).then(function(){
+    response.json({message: 'success!'});
   })
 
 
